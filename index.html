@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Selamat Ulang Tahun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    background: url('foto/je.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); 
+    z-index: 1;
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    max-width: 90%;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 28px; color: #ffeb3b; margin-bottom: 20px; }
+p { font-size: 16px; line-height: 1.5; }
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #ffeb3b;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+
+.balloon {
+    position: absolute;
+    bottom: -80px;
+    width: 50px;
+    height: 70px;
+    border-radius: 50%;
+    animation: float 6s infinite ease-in;
+    opacity: 0.9;
+    z-index: 1;
+}
+.balloon:nth-child(1) { left: 5%; background: #ff5252; animation-duration: 5s; }
+.balloon:nth-child(2) { left: 20%; background: #ff4081; animation-duration: 6s; animation-delay: 1s; }
+.balloon:nth-child(3) { left: 35%; background: #ffd740; animation-duration: 5.5s; animation-delay: 2s; }
+.balloon:nth-child(4) { left: 50%; background: #69f0ae; animation-duration: 6.5s; animation-delay: 3s; }
+.balloon:nth-child(5) { left: 65%; background: #40c4ff; animation-duration: 5.2s; animation-delay: 1.5s; }
+.balloon:nth-child(6) { left: 80%; background: #ab47bc; animation-duration: 6.2s; animation-delay: 2.5s; }
+
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: red;
+    top: -10px;
+    opacity: 0.8;
+    animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(120vh) rotate(360deg); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    overflow: visible;
+    flex-direction: column;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 50%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    animation: popIn 0.5s ease;
+    z-index: 12;
+}
+
+/* Bingkisan */
+.gift {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ff5252;
+    border-radius: 10px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 11;
+    animation: giftPop 0.5s forwards;
+}
+.gift::before, .gift::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+}
+.gift::before {
+    width: 100%;
+    height: 8px;
+    top: 26px; left: 0;
+}
+.gift::after {
+    height: 100%;
+    width: 8px;
+    left: 26px; top:0;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes giftPop {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    60% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+
+@media screen and (max-width: 600px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; }
+    p { font-size: 14px; }
+    button { font-size: 14px; padding: 10px 20px; }
+    .balloon { width: 40px; height: 55px; bottom: -70px; }
+    .modal img { max-width: 90%; max-height: 50%; }
+    .gift { width: 50px; height: 50px; }
+    .gift::before { height: 6px; top: 22px; }
+    .gift::after { width: 6px; left: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+
+
+<div class="card">
+    <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+    <h2>Samuel & Amsal</h2>
+
+    <p>
+    “Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu,<br>
+    demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan,<br>
+    untuk memberikan kepadamu hari depan yang penuh harapan.”<br>
+    <strong>(Yeremia 29:11)</strong>
+    </p>
+
+    <button onclick="showGift()">Klik gift</button>
+</div>
+
+
+<div class="modal" id="modal">
+    <div class="gift"></div>
+    <img src="foto/je.jpeg" alt="Samuel & Amsal">
+</div>
+
+<script>
+function showGift() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+
+ 
+    for(let i=0;i<150;i++){
+        let confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.background = `hsl(${Math.random()*360},100%,50%)`;
+        confetti.style.left = Math.random()*100+'vw';
+        confetti.style.animationDuration = 2+Math.random()*3+'s';
+        confetti.style.width = confetti.style.height = 4+Math.random()*8+'px';
+        document.body.appendChild(confetti);
+        setTimeout(()=>{confetti.remove()},5000);
+    }
+}
+
+
+document.getElementById('modal').addEventListener('click', function(){
+    this.style.display='none';
+});
+</script>
+</body>
+</html>
